@@ -11,13 +11,22 @@ export default {
     });
     return test;
     },
-    async getPlanetName(){
-        let planet = axios.get("https://swapi.dev/api/planets/",
-            {
-                headers:{
-                "content-type": "application/json"
-            }
-        });
-        return planet;
+    async getPlanetData(){
+    let planet = axios.get("https://swapi.dev/api/planets/",
+        {
+            headers:{
+            "content-type": "application/json"
         }
+    });
+    return planet;
+    },
+    async getPersoData(){
+    let perso = axios.get("https://swapi.dev/api/people/",
+    {
+        headers:{
+        "content-type": "application/json"
+    }
+    });
+    return perso;
+    }
 }

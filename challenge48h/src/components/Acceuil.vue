@@ -11,6 +11,9 @@ function redirectPlanet() {
 function redirectFilm() {
     router.push("/film");
 }
+function redirectPersonnage() {
+    router.push("/personnage")
+}
 </script>
  
 <template>
@@ -18,7 +21,7 @@ function redirectFilm() {
     <article class="header">
         <button class="wikiRedirect" v-on:click="redirectPlanet ()">Planet</button>
         <button class="wikiRedirect" v-on:click="redirectFilm ()">Film</button>
-        <button class="wikiRedirect">Personnage</button>
+        <button class="wikiRedirect" v-on:click="redirectPersonnage ()">Personnage</button>
         <button class="wikiRedirect">Vaisseau</button>
         <button class="wikiRedirect">Véhicule</button>
         <button class="wikiRedirect">Especes</button>

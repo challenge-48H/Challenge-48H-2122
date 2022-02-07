@@ -5,7 +5,7 @@ import {ref, computed, onMounted } from 'vue';
 const listPlanet = ref ([]);
 
 async function getPlanet() {
-    let data = await API.getPlanetName();
+    let data = await API.getPlanetData();
     listPlanet.value = data.data.results;
     console.log(listPlanet.value);
 }
@@ -17,10 +17,14 @@ onMounted(async ()=>{
 
 <template>
     <ul v-for="planet of listPlanet">
-        <p>{{ planet.name }}</p> 
+        <div class="card">
+            <h1>{{ planet.name }}</h1>
+             <p>climate = {{ planet.climate }}</p>
+        </div>
     </ul>
 </template>
 
-<style>
-
+<style scoped>
+.card{  
+}
 </style>
