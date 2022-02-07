@@ -1,7 +1,8 @@
 <script setup>
 import { useRouter } from "vue-router";
 import API from "../api/axios.js";
-API.getMovieName().data;
+const result = API.getMovieName();
+console.log((await result).data.director);
 </script>
 
 <template>
