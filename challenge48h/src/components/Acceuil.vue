@@ -3,22 +3,21 @@ import { useRouter } from "vue-router";
 import API from "../api/axios.js";
 import {ref, computed } from 'vue';
 
-const name = ref ('');
-
-name.value = API.getMovieName().data;
-
 const router = useRouter();
 
-function redirect() {
-    router.push("/Planets");
+function redirectPlanet() {
+    router.push("/planets");
+}
+function redirectFilm() {
+    router.push("/film");
 }
 </script>
  
 <template>
   <section>
     <article class="header">
-        <button class="wikiRedirect" v-on:click="redirect ()">Planet</button>
-        <button class="wikiRedirect">Film</button>
+        <button class="wikiRedirect" v-on:click="redirectPlanet ()">Planet</button>
+        <button class="wikiRedirect" v-on:click="redirectFilm ()">Film</button>
         <button class="wikiRedirect">Personnage</button>
         <button class="wikiRedirect">Vaisseau</button>
         <button class="wikiRedirect">Véhicule</button>
@@ -44,21 +43,23 @@ function redirect() {
     border-radius: 18px;
     margin: 40px auto;
     padding: 25px ;
-    transition: 0.2s;
+    transition: 0.5s;
 }
 .wikiRedirect:hover{
-    padding-left: 35px;
-    padding-right: 35px;
+    width: 200px;
 }
-@media screen and (min-width: 200px) and (max-width: 1000px) {
-  .header {
-    display: flex;
-    flex-direction: column;
-    width: fit-content;
-  }
-  .wikiRedirect{
-    margin-left: 20px;
-    margin-right: 20px;
-  }
-}
+
+    @media screen and (min-width: 200px) and (max-width: 1000px) {
+        .header {
+            display: flex;
+            flex-direction: column;
+            width: fit-content;
+        }
+        .wikiRedirect{
+            margin-left: 20px;
+            margin-right: 20px;
+        }
+    }
+
+
 </style>
