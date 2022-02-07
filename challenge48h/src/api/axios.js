@@ -1,12 +1,9 @@
-import api from 'axios'
+import axios from "axios";
+import api from "axios";
 
-export default{ 
-    async apiGetFilms(){
-        return await api.get("https://swapi.dev/api/films",
-        {
-            headers:{
-                "Content-Type": 'application/json' 
-            }
-        });
-    }
-}
+export default {
+  async getMovieName() {
+    let test = axios.get("https://swapi.dev/api/films/1");
+    console.log(test);
+  },
+};
