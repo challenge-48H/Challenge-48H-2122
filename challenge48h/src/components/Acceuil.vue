@@ -1,18 +1,6 @@
 <script setup>
 import { useRouter } from "vue-router";
-import API from "../api/axios.js";
-const result = API.getMovieName();
-console.log((await result).data.director);
-</script>
-import {ref, computed } from 'vue';
 
-const name = ref ('');
-
-name.value = API.getMovieName().data;
-
-function redirect() {
-    router.push("/Planets");
-}
 </script>
  
 <template>
