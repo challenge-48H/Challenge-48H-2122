@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from "vue-router"
-import Acceuil from "../components/Acceuil.vue"
+import quiz from "../components/quiz.vue"
 
 
 export default createRouter({
