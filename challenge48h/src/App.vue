@@ -3,7 +3,12 @@
 // Check out https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup
 import HelloWorld from './components/HelloWorld.vue'
 import Acceuil from './components/Acceuil.vue';
+import Espèces from './components/Espèces.vue';
+import Film from './components/Film.vue';
+import Vaisseau from './components/Vaisseau.vue';
+import Véhicule from './components/Véhicule.vue';
 import {RouterLink, RouterView} from"vue-router";
+
 
 </script>
 
@@ -22,4 +27,9 @@ import {RouterLink, RouterView} from"vue-router";
   color: #2c3e50;
   margin-top: 60px;
 }
+
+
+
+
+
 </style>
