@@ -36,7 +36,6 @@ onMounted(async () => {
       <div class="box">
         <div class="content">
           <h3>{{ vehicles.name }}</h3>
-          <ul class="information">
             <li>Modèle : {{ vehicles.model }}</li>
             <li v-if="vehicles.cost_in_credits != 'unknown'">
               Prix en crédit : {{ vehicles.cost_in_credits }}
@@ -59,7 +58,6 @@ onMounted(async () => {
             >
               Nombre de passager : {{ vehicles.passengers }}
             </li>
-          </ul>
           <a href="#">Read More</a>
         </div>
       </div>
@@ -176,8 +174,12 @@ body .container .card .box .content h2 {
   top: -10px;
   right: 30px;
   font-size: 8rem;
-  color: rgba(255, 255, 255, 0.1);
+  color: rgb(255, 255, 255);
 }
+body .container .card .box .content li {
+  color:white
+}
+
 
 body .container .card .box .content h3 {
   font-size: 1.8rem;

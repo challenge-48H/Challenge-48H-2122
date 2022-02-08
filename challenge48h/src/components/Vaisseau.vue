@@ -176,7 +176,7 @@ body .container .card .box .content h2 {
   top: -10px;
   right: 30px;
   font-size: 8rem;
-  color: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255);
 }
 
 body .container .card .box .content h3 {

@@ -6,6 +6,8 @@ import Header from './header.vue';
 const listPerso = ref ([]);
 const newlistPerso = ref ([]);
 
+const csspopup = ref ("infoReveal");
+
 const listData = ref ([]);
 
 const regex = new RegExp('https:*');
@@ -28,6 +30,7 @@ async function PersoList(){
 onMounted(async ()=>{
     await PersoList();
 })
+
 
 /* async function PersoList(){
     listPerso.value = (await API.getPersoData("")).data;
@@ -64,11 +67,11 @@ async function SwitchPageprevious(){
 <div class ="pagecontent">
     <!-- <button v-on:click="SwitchPageprevious()" class="redirect">PREVIOUS</button> -->
         <div class="container">
-        <div v-for="Perso of listPerso" class="card">
+        <div v-for="Perso of listPerso" :key="Perso.name" class="card">
         <div class="box">
             <div class="content">
             <h3>{{ Perso.name }}</h3>
-            <ul class="information">
+            <!-- <ul class="information">
                 <li v-if="Perso.birth_year != 'unknown'">
                 Date de Naissance : {{ Perso.birth_year }}
                 </li>
@@ -81,14 +84,17 @@ async function SwitchPageprevious(){
                 <li v-if="Perso.species != 'n/a'">
                 Espéce : {{ Perso.species }}
                 </li>
-            </ul>
-            <a href="#">Read More</a>
+            </ul> -->
+            <a href="#" v-on:click="Getid()" >Read More</a>
             </div>
         </div>
         </div>
     </div>
     <!-- <button v-on:click="SwitchPageNext()" class="redirect">NEXT</button> -->
   </div>
+  <!-- <div class="infoReveal">
+      salut
+  </div> -->
 </template>
 
 <style scoped>
@@ -124,6 +130,10 @@ display: none;
 .pagecontent{
     display: flex;
     flex-direction: row;
+    width: 100%;
+    left: 0;
+    z-index: 1;
+    position: absolute;
 }
 .redirect{
     font-family: Arial, Helvetica, sans-serif;
@@ -238,4 +248,17 @@ body .container .card .box .content a:hover {
   background: #fff;
   color: #000;
 }
+/* .infoHide{
+    display: none;
+}
+.infoReveal{
+    z-index: 99;
+    position: absolute;
+    align-items: center;
+    width: 100vh;
+    background-color: #2196f3;
+    flex-direction: column;
+    margin: 100px auto;
+    border-radius: 10px;
+} */
 </style>

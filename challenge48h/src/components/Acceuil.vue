@@ -1,5 +1,7 @@
 <script setup>
 import { useRouter } from "vue-router";
+import Header from './header.vue';
+
 const router = useRouter();
 function redirectPlanet() {
   router.push("/planets");
@@ -22,16 +24,7 @@ function redirectEspece() {
 </script>
 
 <template>
-  <section>
-    <article class="header">
-        <button class="wikiRedirect" v-on:click="redirectPlanet()">Planète</button>
-        <button class="wikiRedirect" v-on:click="redirectFilm ()">Film</button>
-        <button class="wikiRedirect" v-on:click="redirectPersonnage ()">Personnage</button>
-        <button class="wikiRedirect" v-on:click="redirectVaisseau ()">Vaisseau</button>
-        <button class="wikiRedirect" v-on:click="redirectVehicule ()">Véhicule</button>
-        <button class="wikiRedirect" v-on:click="redirectEspece ()">Espèce</button>
-    </article>
-  </section>
+  <Header></Header>
 <div class="logo">
     <img class="logoimg" src="../assets/StarWarslogo.png">
 </div>
@@ -41,6 +34,17 @@ function redirectEspece() {
 </template> 
 
 <style scoped>
+@media screen and (min-width: 200px) and (max-width: 1000px) {
+        .button-quizz {
+            display: flex;
+            flex-direction: column;
+            width: fit-content;
+        }
+        .wikiRedirect{
+            margin-left: 20px;
+            margin-right: 20px;
+        }
+    }
 .logo {
   display: flex;
   justify-content: space-around;
@@ -53,24 +57,6 @@ function redirectEspece() {
   height: 200px;
   width: auto;
 }
-.header {
-  margin: 10px auto;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  flex-wrap: nowrap;
-  max-width: 90%;
-}
-  .header .wikiRedirect {
-   background: #999;
-    padding: 1em;
-    font-size: .9em;
-    margin: .3em;
-    color: rgb(232, 255, 28);
-    text-decoration: none;
-    flex-grow: 1;
-    text-align: center;
-  }
   .button-quizz{
   margin: 10px auto;
   display: flex;
@@ -79,20 +65,19 @@ function redirectEspece() {
   max-width: 20%;
   }
   .button-quizz .wikiRedirect {
-    background: #999;
-    padding: 1em;
-    font-size: .9em;
-    margin: .3em;
-    color: rgb(251, 255, 0);
-    text-decoration: none;
-    flex-grow: 1;
-    text-align: center;
-    align-items: center;
+     font-family: Arial, Helvetica, sans-serif;
+    font-size: 120%;
+    font-weight: 600;
+    width: 150px;
+    border-radius: 18px;
+    margin: 40px auto;
+    padding: 25px ;
+    transition: 0.5s;
   }
   .wikiRedirect:hover{
-    color: rgba(255, 255, 255, 0.83);
-    background: rgb(251, 255, 0);
+    width: 200px;
   }
+  
   #app{
     height:100vh;
   }
