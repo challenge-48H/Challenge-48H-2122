@@ -47,7 +47,7 @@ function redirectEspece() {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    background-color: red;
+    background: none;
     margin-top: 0;
     width: 100%
 }
