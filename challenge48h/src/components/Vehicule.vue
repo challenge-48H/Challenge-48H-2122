@@ -1,6 +1,7 @@
 <script setup>
 import API from "../api/axios.js";
 import { ref, computed, onMounted } from "vue";
+import Header from './header.vue';
 
 const listVehicles = ref([]);
 const newlistVehicles = ref([]);
@@ -24,9 +25,12 @@ onMounted(async () => {
 </script>
 
 <template>
-<div class="logov">
-    <a href="http://localhost:3000/"><img class="logoimgv" src="../assets/StarWarslogo.png"></a>
+  <div class="logov">
+    <img class="logoimgv1" src="../assets/atgauche.png">
+    <a href="http://localhost:3000/"><img class="logoimgv2" src="../assets/StarWarslogo.png"></a>
+    <img class="logoimgv3" src="../assets/atdroite.png" >
   </div>
+  <Header></Header>
   <div class="container">
     <div v-for="vehicles of listVehicles" class="card">
       <div class="box">
@@ -72,6 +76,16 @@ onMounted(async () => {
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
 }
+@media only screen and (max-width: 1050px) {
+  .logoimgv1{
+display: none;
+  }
+}
+@media only screen and (max-width: 700px) {
+  .logoimgv3{
+display: none;
+  }
+}
 .test {
   /* background-color: cornflowerblue; */
   border-bottom: 1px solid black;
@@ -84,9 +98,9 @@ onMounted(async () => {
   text-align: center;
   flex-wrap: wrap;
 }
-.logoimgv {
+.logoimgv1, .logoimgv2, .logoimgv3 {
   height: 200px;
-  width: auto;
+  width: 350px;
 }
 
 body {

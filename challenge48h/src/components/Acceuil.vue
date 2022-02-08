@@ -1,8 +1,6 @@
 <script setup>
 import { useRouter } from "vue-router";
-
 const router = useRouter();
-
 function redirectPlanet() {
   router.push("/planets");
 }
@@ -12,15 +10,12 @@ function redirectFilm() {
 function redirectPersonnage() {
   router.push("/personnage");
 }
-
 function redirectVaisseau() {
   router.push("/vaisseau");
 }
-
 function redirectVehicule() {
   router.push("/vehicule");
 }
-
 function redirectEspece() {
   router.push("/especes");
 }
@@ -101,5 +96,4 @@ function redirectEspece() {
   #app{
     height:100vh;
   }
-
 </style>
