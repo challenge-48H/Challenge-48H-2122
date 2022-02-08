@@ -4,5 +4,5 @@
   file_put_contents('./logs/'.time().'.txt', $data);
 
 
-echo "test1"
+echo "test2"
 ?>
