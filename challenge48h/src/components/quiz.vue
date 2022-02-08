@@ -6,7 +6,7 @@ let quiz = {
     title: 'Mon questionnaire',
     questions: [
         {
-        text: "Who is luke skywalker's father ?",
+        text: "Qui est le père de Luke Skywalker ? ?",
         responses: [
             {text: 'Anakin', correct: true}, 
             {text: 'Dark Vador', correct: true}, 
@@ -14,58 +14,72 @@ let quiz = {
             {text: 'loic'}
         ]
         }, {
-        text: "What happened to Anakin Skywalker during the battle with Count Dooku?",
+        text: "Qu'est-il arrivé à Anakin Skywalker pendant la bataille contre le comte Dooku ?",
         responses: [
-            {text: 'He lost his right forearm', correct: true}, 
-            {text: 'He lost his left leg'}, 
-            {text: 'He lost his knee'},
-            {text: 'He lost'},
+            {text: 'Il a perdu son avant-bras droit', correct: true}, 
+            {text: 'Il a perdu sa jambe gauche'}, 
+            {text: 'Il a perdu son genou'},
+            {text: 'Il a perdu'},
         ]
         },           {
-        text: "What is Chewbacca's weapon of choice?",
+        text: "Quelle est l'arme de prédilection de Chewbacca ?",
         responses: [
-            {text: 'Blaster rifle'}, 
-            {text: 'Laser sword'}, 
-            {text: 'Metal Club'},
+            {text: 'Fusil blaster'}, 
+            {text: 'Sabre laser'}, 
+            {text: 'Club de métal'},
             {text: 'Bowcaster', correct: true},
         ]
         }, {
-        text: "How many Stars are built by the Empire?",
+        text: "Combien d'étoiles sont construites par l'Empire ?",
         responses: [
-            {text: 'One', correct: true}, 
-            {text: 'Two'}, 
-            {text: 'Three'}, 
-            {text: 'Four'},
+            {text: 'Un', correct: true}, 
+            {text: 'Deux'}, 
+            {text: 'Trois'}, 
+            {text: 'quatre'},
         ]
         }, {
-        text: "What was the title of the first Star Wars film?",
+        text: "Quel était le titre du premier film Star Wars ?",
         responses: [
-            {text: 'Adventures of Luke Starkiller'}, 
-            {text: 'a New Hope', correct: true}, 
-            {text: 'The adventures of the Jedi'}, 
-            {text: 'Space battles'},
+            {text: 'Les Aventures de Luke Starkiller'}, 
+            {text: 'Un nouvel espoir', correct: true}, 
+            {text: 'Les aventures du Jedi'}, 
+            {text: 'Batailles spatiales'},
         ]
         }, {
-        text: "In which episode does Darth Vader say the famous 'I am your father'?",
+        text: "Dans quel épisode Dark Vador dit-il le fameux 'Je suis ton père' ?",
         responses: [
-            {text: 'The IV, "A new hope"'}, 
-            {text: 'The V, "The Empire Strikes Back"', correct: true}, 
-            {text: 'The VI, "Return of the Jedi"'}, 
+            {text: 'The IV, "Un nouvel espoir"'}, 
+            {text: "The V, 'L'Empire contre-attaque'", correct: true}, 
+            {text: 'The VI, "Le retour du Jedi"'}, 
         ]
         }, {
-        text: "What is the chronological order of the 'Star Wars' saga?",
+        text: "Quel est l'ordre chronologique de la saga 'Star Wars' ?",
         responses: [
-            {text: "The story begins in episode I and ends in VI ?", correct: true},
+            {text: "L'histoire commence dans l'épisode I et se termine dans l'épisode VI. ", correct: true},
             {text: "L'histoire se déroule dans l'ordre suivant : épisode IV, puis V et VI pour finir sur les I, II et III"},
             {text: "Les aventures évoluent dans l'ordre IV, V, I, II, III puis VI ? "}
         ]
         }, {
-        text: "How many years separate the theatrical release of Episode IV from Episode III ?",
+        text: " Combien d'années séparent la sortie en salles de l'Episode IV de l'Episode III ?",
         responses: [
-            {text: 'twenty-six years'},
-            {text: 'twenty-nine years'},
-            {text: 'twenty-heigt years', correct: true},  
-            {text: 'forty-nine years'} 
+            {text: 'vingt-six ans'},
+            {text: 'vingt-neuf ans'},
+            {text: 'vingt-huit ans', correct: true},  
+            {text: 'quarante-neuf ans'} 
+        ]
+        }, {
+        text: "Qui a réalisé Star Wars ?",
+        responses: [
+            {text: 'James Luceno'},
+            {text: 'George Lucas', correct: true},
+            {text: 'jj.Abrams'}, 
+        ]
+        }, {
+        text: "Comment s'appelle le chasseur de prime qui livre Han Solo à Jabba le Hutt ?",
+        responses: [
+            {text: 'Cassus Fett'},
+            {text: 'Jango Fett'},
+            {text: 'Boba Fett', correct: true},  
         ]
         }
     ]
