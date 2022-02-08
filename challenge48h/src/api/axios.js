@@ -2,31 +2,52 @@ import axios from "axios";
 import api from "axios";
  
 export default {
-  async getMovieName() {
-    let test = axios.get("https://swapi.dev/api/films/",
-    {
-        headers:{
-            "content-type": "application/json"
-        }
-    });
-    return test;
-    },
-    async getPlanetData(){
-    let planet = axios.get("https://swapi.dev/api/planets/",
+    async getPersoData(endUrl){
+        return await api.get(`https://swapi.dev/api/people/${endUrl}`,
         {
             headers:{
-            "content-type": "application/json"
-        }
-    });
-    return planet;
+            "Content-Type": 'application/json' 
+            }
+        });
     },
-    async getPersoData(){
-    let perso = axios.get("https://swapi.dev/api/people/",
-    {
-        headers:{
-        "content-type": "application/json"
-    }
-    });
-    return perso;
-    }
+    async getPlanetData(endUrl){
+        return await api.get(`https://swapi.dev/api/planets/${endUrl}`,
+        {
+            headers:{
+            "Content-Type": 'application/json' 
+            }
+        });
+    },
+    async getFilmData(endUrl){
+        return await api.get(`https://swapi.dev/api/films/${endUrl}`,
+        {
+            headers:{
+            "Content-Type": 'application/json' 
+            }
+        });
+    },
+    async getVehicleData(endUrl){
+        return await api.get(`https://swapi.dev/api/vehicles/${endUrl}`,
+        {
+            headers:{
+            "Content-Type": 'application/json' 
+            }
+        });
+    },
+    async getVaisseauData(endUrl){
+        return await api.get(`https://swapi.dev/api/starships/${endUrl}`,
+        {
+            headers:{
+            "Content-Type": 'application/json' 
+            }
+        });
+    },
+    async getEspeceData(endUrl){
+        return await api.get(`https://swapi.dev/api/species/${endUrl}`,
+        {
+            headers:{
+            "Content-Type": 'application/json' 
+            }
+        });
+    },
 }

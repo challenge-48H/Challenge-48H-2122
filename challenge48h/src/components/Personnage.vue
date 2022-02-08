@@ -3,16 +3,23 @@ import API from "../api/axios.js";
 import {ref, computed, onMounted } from 'vue';
 
 const listPerso = ref ([]);
+const newlistPerso = ref ([]);
 
-async function getPerso() {
-    let data = await API.getPersoData();
-    listPerso.value = data.data.results;
+async function PersoList(){
+    listPerso.value = (await API.getPersoData("")).data;
+    while ((listPerso.value).next!=null){
+        const urlNextPage = ((listPerso.value).next).substr(29);
+        newlistPerso.value = (await API.getPersoData(urlNextPage)).data;
+        newlistPerso.value.results.forEach((people)=> listPerso.value.results.push(people))
+        listPerso.value.next = newlistPerso.value.next;
+    }
+    listPerso.value = listPerso.value.results;
     console.log(listPerso.value);
 }
-
 onMounted(async ()=>{
-    await getPerso();
+    await PersoList();
 })
+
 </script>
 
 <template>
@@ -28,3 +35,17 @@ onMounted(async ()=>{
 .card{  
 }
 </style>
+
+
+async function getPerso(){
+    let data = await API.getPersoData();
+    listPerso.value = data.data.results;
+    while ((listPerso.value).next!=null){
+        const urlNextPage = ((listPerso.value ).next).substr(29);
+        newListlistPerso.value = (await API.apiGetVehicles(urlNextPage)).data;
+        newListlistPerso.value.results.forEach((people)=> listPerso.value.results.push(people))
+        listPerso.value.next = newlistPerso.value.next;
+    }
+    listPerso.value = listPerso.value.results;
+    console.log(listPerso.value);
+}
