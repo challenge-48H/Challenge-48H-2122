@@ -2,6 +2,14 @@ import axios from "axios";
 import api from "axios";
  
 export default {
+    async getAllData(){
+        return await api.get(`https://swapi.dev/api/`,
+        {
+            headers:{
+                
+            }
+        });
+    },
     async getPersoData(endUrl){
         return await api.get(`https://swapi.dev/api/people/${endUrl}`,
         {

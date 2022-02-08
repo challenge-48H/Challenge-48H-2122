@@ -3,6 +3,7 @@ import { useRouter } from "vue-router";
 import API from "../api/axios.js";
 import {ref, computed } from 'vue';
 
+
 const router = useRouter();
 
 function redirectPlanet() {
@@ -29,7 +30,7 @@ function redirectPersonnage() {
   </section>
 </template>
 
-<style scoped>
+<style >
 .header{
     display: flex;
     flex-direction: row;
