@@ -22,6 +22,8 @@ async function starshipsList() {
 onMounted(async () => {
   await starshipsList();
 });
+
+
 </script>
 
 <template>
@@ -61,11 +63,14 @@ onMounted(async () => {
               Nombre de passager : {{ starships.passengers }}
             </li>
           </ul> -->
-          <a href="#">Read More</a>
+          <a href="#" v-on:click="Getid()" >Read More</a>
         </div>
       </div>
     </div>
   </div>
+  <!-- <div class="infoReveal">
+      salut
+  </div> -->
 </template>
 
 <style scoped>
@@ -80,6 +85,7 @@ onMounted(async () => {
   
 }
 .logov {
+  margin-top: 25px;
   display: flex;
   justify-content: space-around;
   align-items:center ;
@@ -106,12 +112,12 @@ body {
 }
 
 body .container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  max-width: 100%;
-  margin: 40px 0;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    left: 0;
+    z-index: 1;
+    position: absolute;
 }
 
 body .container .card {
@@ -212,4 +218,17 @@ body .container .card .box .content a:hover {
   background: #fff;
   color: #000;
 }
+/* .infoHide{
+    display: none;
+}
+.infoReveal{
+  z-index: 99;
+  position: absolute;
+  align-items: center;
+  width: 50%;
+  background-color: #2196f3;
+  flex-direction: column;
+  margin: auto;
+  border-radius: 10px;
+} */
 </style>
