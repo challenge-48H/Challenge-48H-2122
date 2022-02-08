@@ -24,7 +24,9 @@ onMounted(async () => {
 </script>
 
 <template>
-  <p>jure la vie de oim j'en ai marre</p>
+<div class="logov">
+    <a href="http://localhost:3000/"><img class="logoimgv" src="../assets/StarWarslogo.png"></a>
+  </div>
   <div class="container">
     <div v-for="vehicles of listVehicles" class="card">
       <div class="box">
@@ -62,10 +64,6 @@ onMounted(async () => {
 </template>
 
 <style>
-.test {
-  /* background-color: cornflowerblue; */
-  border-bottom: 1px solid black;
-}
 
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700;800&display=swap");
 * {
@@ -73,6 +71,22 @@ onMounted(async () => {
   padding: 0;
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
+}
+.test {
+  /* background-color: cornflowerblue; */
+  border-bottom: 1px solid black;
+}
+.logov {
+  display: flex;
+  justify-content: space-around;
+  align-items:center ;
+  height: 30vh;
+  text-align: center;
+  flex-wrap: wrap;
+}
+.logoimgv {
+  height: 200px;
+  width: auto;
 }
 
 body {
@@ -106,7 +120,7 @@ body .container .card {
 }
 
 body .container .card:nth-child(1) .box .content a {
-  background: #2196f3;
+  background: #000000;
 }
 
 body .container .card .box {

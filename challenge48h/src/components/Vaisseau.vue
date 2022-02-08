@@ -24,8 +24,10 @@ onMounted(async () => {
 </script>
 
 <template>
-  <div class="logo">
-    <a href="http://localhost:3000/"><img class="logoimg" src="../assets/StarWarslogo.png"></a>
+   <div class="logov">
+    <img class="logoimgv1" src="../assets/destroyer.png">
+    <a href="http://localhost:3000/"><img class="logoimgv2" src="../assets/StarWarslogo.png"></a>
+    <img class="logoimgv3" src="../assets/rond.png" >
   </div>
   <div class="container">
     <div v-for="starships of listStarships" class="card">
@@ -72,7 +74,10 @@ onMounted(async () => {
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
 }
-.logo {
+@media only screen and (min-width: 1050px) {
+  
+}
+.logov {
   display: flex;
   justify-content: space-around;
   align-items:center ;
@@ -80,9 +85,9 @@ onMounted(async () => {
   text-align: center;
   flex-wrap: wrap;
 }
-.logoimg {
+.logoimgv1, .logoimgv2, .logoimgv3 {
   height: 200px;
-  width: auto;
+  width: 350px;
 }
 .test {
   /* background-color: cornflowerblue; */

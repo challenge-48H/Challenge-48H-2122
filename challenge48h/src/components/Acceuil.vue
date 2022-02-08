@@ -46,7 +46,6 @@ function redirectEspece() {
 </template> 
 
 <style scoped>
-
 .logo {
   display: flex;
   justify-content: space-around;
@@ -98,6 +97,9 @@ function redirectEspece() {
   .wikiRedirect:hover{
     color: rgba(255, 255, 255, 0.83);
     background: rgb(251, 255, 0);
+  }
+  #app{
+    height:100vh;
   }
 
 </style>
