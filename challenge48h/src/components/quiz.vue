@@ -1,38 +1,61 @@
-<script setup>
-
-import {useRouter} from"vue-router";
-import question from "../questionnaire.js" ;
-question.question(3)
-language = "Javascript" src = "../questionnaire.js"
-</script>
-
-<template>
-    <div class = "centre">
-        <div class = "titre_centre" id="question"></div>
-    </div>
-    <div class = "colonne" id = "liste ">
-        <div class = "calque_rep" id = "rep1"></div>
-        <div class = "calque_rep" id = "rep2"></div>
-        <div class = "calque_rep" id = "rep3"></div>
-        <div class = "calque_rep" id = "rep4"></div>
-
-    </div>
-</template> 
-
-<style scoped>
-    .quiz {
-        border-width: 100px;
-        border-style: solid;
-        border-color: black;
-        border : 1rem solid;    
-    }
-</style>
 <script>
-import { defineComponent } from '@vue/composition-api'
+window.onload=function(){
+    // On crée un objet questionnaire avec un titre et deux questions
+    // Une question a une ou plusieurs réponses, et une ou plusieurs sont valides.
+    var quiz = {
+        title: 'Mon questionnaire',
+        questions: ["Who is luke skywalker's father ?",
+            {
+            text: "Question 1",
+            responses: ["Anakin",
+                {text: 'Bonne réponse !', correct: true}, 
+                {text: 'Mauvaise réponse .'}, 
+            ]
+            }, {
+            text: "Question 2",
+            responses: ["Dark Vador",
+                {text: 'Bonne réponse', correct: true}, 
+                {text: 'Mauvaise réponse'}, 
+            ]
+            },           {
+            text: "Question 3",
+            responses: ["Obi-wan",
+                {text: 'Mauvaise réponse, dommage.'}, 
+                {text: 'Bonne réponse !', correct: true}, 
+            ]
+            }, {
+            text: "Question 4",
+            responses: ["Han solo",
+                {text: 'Mauvaise réponse .'}, 
+                {text: 'Bonne réponse', correct: true}, 
+            ]
+            },
+        ]
+    }
+    
+    new Vue({
+    el: '#app',
+    data: { quiz: quiz }, // On attache le questionnaire à data
+    })
+}
 
-export default defineComponent({
-    setup() {
-        
-    },
-})
 </script>
+<template>
+    
+<div id="app">
+<!-- Titre du quiz -->
+    <h1>{{ quiz.title }}</h1>
+    <!-- Questions: on affiche une div pour chaque question -->
+    <div v-for="question of quiz.questions">
+    <h2>{{ question.text }}</h2>
+<!-- Responses: on affiche une balise li pour chaque réponse possible -->
+    <ol>
+        <li v-for="response of question.responses">
+        <label>
+        <input type="radio"> {{response.text}}
+        </label>
+        </li>
+    </ol>
+    </div>
+</div>
+</template>
