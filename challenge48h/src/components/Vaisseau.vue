@@ -25,7 +25,7 @@ onMounted(async () => {
 
 <template>
   <div class="logo">
-    <imgclass="logoimg" src="../assets/StarWarslogo.png">
+    <a href="http://localhost:3000/"><img class="logoimg" src="../assets/StarWarslogo.png"></a>
   </div>
   <div class="container">
     <div v-for="starships of listStarships" class="card">
@@ -65,11 +65,18 @@ onMounted(async () => {
 </template>
 
 <style scoped>
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700;800&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
 .logo {
   display: flex;
   justify-content: space-around;
   align-items:center ;
-  height: 40vh;
+  height: 30vh;
   text-align: center;
   flex-wrap: wrap;
 }
@@ -80,14 +87,6 @@ onMounted(async () => {
 .test {
   /* background-color: cornflowerblue; */
   border-bottom: 1px solid black;
-}
-
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700;800&display=swap");
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
 }
 
 body {
