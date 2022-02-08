@@ -107,7 +107,7 @@ body .container .card {
 }
 
 body .container .card:nth-child(1) .box .content a {
-  background: #2196f3;
+  background: #000000;
 }
 
 body .container .card .box {
