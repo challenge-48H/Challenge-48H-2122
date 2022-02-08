@@ -12,36 +12,36 @@ export default createRouter({
   routes: [
     {
       path: "/",
-      name: "Acceuil",
+      name: "acceuil",
       component: Acceuil,
     },
     {
-      path: "/Planets",
+      path: "/planets",
       name: "Liste des planete",
       component: Planet,
     },
     {
-      path: "/Vehicule",
+      path: "/véhicule",
       name: "liste des véhicules",
       component: Vehicule,
     },
     {
-      path: "/Especes",
+      path: "/especes",
       name: "Liste des Espéces",
       component: Especes,
     },
     {
-      path: "/Film",
+      path: "/film",
       name: "Liste des Films",
       component: Film,
     },
     {
-      path: "/Vaisseau",
+      path: "/vaisseau",
       name: "Liste des Vaisseaux",
       component: Vaisseau,
     },
     {
-      path: "/Personnage",
+      path: "/personnage",
       name: "Liste des Personnage",
       component: Personnage,
     },

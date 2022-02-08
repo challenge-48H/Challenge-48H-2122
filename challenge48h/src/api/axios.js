@@ -1,45 +1,47 @@
 import axios from "axios";
+import api from "axios";
 
 export default {
-  async getAllMovie() {
-    let test = axios.get("https://swapi.dev/api/films", {
+  async getPersoData(endUrl) {
+    return await api.get(`https://swapi.dev/api/people/${endUrl}`, {
       headers: {
-        "content-type": "application/json",
+        "Content-Type": "application/json",
       },
     });
-    return test;
   },
-
-  async getAllPeople() {
-    let arrayOfPeople = new Array();
-    for (let index = 1; index <= 83; index++) {
-      if (index == 17) {
-        continue;
-      }
-      let test = await axios.get("https://swapi.dev/api/people/" + index);
-      arrayOfPeople.push(test.data.name);
-    }
-    console.log(arrayOfPeople);
-  },
-
-  async getAllVehicles() {
-    let vehicles = axios.get("https://swapi.dev/api/vehicles", {
+  async getPlanetData(endUrl) {
+    return await api.get(`https://swapi.dev/api/planets/${endUrl}`, {
       headers: {
-        "content-type": "application/json",
+        "Content-Type": "application/json",
       },
     });
-    return vehicles;
   },
-
-  async getStarships(index) {
-    let starships = axios.get(
-      "https://swapi.dev/api/starships/?page=" + index,
-      {
-        headers: {
-          "content-type": "application/json",
-        },
-      }
-    );
-    return starships;
+  async getFilmData(endUrl) {
+    return await api.get(`https://swapi.dev/api/films/${endUrl}`, {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+  },
+  async getVehicleData(endUrl) {
+    return await api.get(`https://swapi.dev/api/vehicles/${endUrl}`, {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+  },
+  async getVaisseauData(endUrl) {
+    return await api.get(`https://swapi.dev/api/starships/${endUrl}`, {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+  },
+  async getEspeceData(endUrl) {
+    return await api.get(`https://swapi.dev/api/species/${endUrl}`, {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
   },
 };

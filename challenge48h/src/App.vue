@@ -1,12 +1,6 @@
 <script setup>
 // This starter template is using Vue 3 <script setup> SFCs
 // Check out https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup
-import HelloWorld from "./components/HelloWorld.vue";
-import Acceuil from "./components/Acceuil.vue";
-import Especes from "./components/Especes.vue";
-import Film from "./components/Film.vue";
-import Vaisseau from "./components/Vaisseau.vue";
-import Vehicule from "./components/Vehicule.vue";
 import { RouterLink, RouterView } from "vue-router";
 </script>
 
