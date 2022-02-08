@@ -63,7 +63,6 @@ onMounted(async () => {
               Nombre de passager : {{ starships.passengers }}
             </li>
           </ul>
-          <a href="#" v-on:click="Getid()" >Read More</a>
         </div>
       </div>
     </div>

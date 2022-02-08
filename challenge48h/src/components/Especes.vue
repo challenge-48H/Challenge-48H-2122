@@ -33,7 +33,7 @@ onMounted(async () => {
       <div class="box">
         <div class="content">
           <h3>{{ species.name }}</h3>
-          <!-- <ul class="information">
+          <ul class="information">
             <li>Classification : {{ species.classification }}</li>
             <li
               v-if="
@@ -72,8 +72,7 @@ onMounted(async () => {
             >
               Durée de vie moyenne : {{ species.average_lifespan }} ans
             </li>
-          </ul> -->
-          <a href="#">Read More</a>
+          </ul>
         </div>
       </div>
     </div>

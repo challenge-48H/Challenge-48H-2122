@@ -37,7 +37,6 @@ onMounted(async ()=>{
                 episode : {{ Film.episode_id }}
                 </li>
             </ul>
-            <a href="#">Read More</a>
             </div>
         </div>
         </div>

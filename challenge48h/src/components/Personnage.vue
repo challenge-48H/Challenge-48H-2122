@@ -75,7 +75,6 @@ async function SwitchPageprevious(){
                 Genre : {{ Perso.gender }}
                 </li>
             </ul>
-            <a href="#" v-on:click="Getid()" >Read More</a>
             </div>
         </div>
         </div>

@@ -42,7 +42,6 @@ onMounted(async ()=>{
                 Terrain : {{ Planet.terrain }}
                 </li>
             </ul>
-            <a href="#">Read More</a>
             </div>
         </div>
         </div>
