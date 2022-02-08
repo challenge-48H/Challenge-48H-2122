@@ -32,6 +32,11 @@ onMounted(async ()=>{
         <div class="box">
             <div class="content">
             <h3>{{ Film.title }}</h3>
+            <ul class="information">
+                <li v-if="Film.episode_id != 'unknown'">
+                episode : {{ Film.episode_id }}
+                </li>
+            </ul>
             <a href="#">Read More</a>
             </div>
         </div>

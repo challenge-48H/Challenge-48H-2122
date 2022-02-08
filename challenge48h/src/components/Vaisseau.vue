@@ -38,7 +38,7 @@ onMounted(async () => {
       <div class="box">
         <div class="content">
           <h3>{{ starships.name }}</h3>
-          <!-- <ul class="information">
+          <ul class="information">
             <li>Modèle : {{ starships.model }}</li>
             <li v-if="starships.cost_in_credits != 'unknown'">
               Prix en crédit : {{ starships.cost_in_credits }}
@@ -62,7 +62,7 @@ onMounted(async () => {
             >
               Nombre de passager : {{ starships.passengers }}
             </li>
-          </ul> -->
+          </ul>
           <a href="#" v-on:click="Getid()" >Read More</a>
         </div>
       </div>

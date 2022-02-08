@@ -52,28 +52,27 @@ function redirectEspece() {
     width: 100%
 }
 .wikiRedirect{
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 120%;
-    font-weight: 600;
-    width: 150px;
-    border-radius: 18px;
-    margin: 40px auto;
-    padding: 25px ;
+    position: relative;
+    display: inline-block;
+    padding: 15px 40px;
+    background: black;
+    border-radius: 5px;
+    text-decoration: none;
+    color: white;
+    margin-top: 20px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
     transition: 0.5s;
 }
 .wikiRedirect:hover{
-    width: 200px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6);
+    background: #fff;
+    color: #000;
 }
-
     @media screen and (min-width: 200px) and (max-width: 1000px) {
         .header {
             display: flex;
             flex-direction: column;
             width: fit-content;
-        }
-        .wikiRedirect{
-            margin-left: 20px;
-            margin-right: 20px;
         }
     }
 

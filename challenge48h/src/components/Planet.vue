@@ -31,20 +31,17 @@ onMounted(async ()=>{
         <div class="box">
             <div class="content">
             <h3>{{ Planet.name }}</h3>
-            <!-- <ul class="information">
-                <li v-if="Planet.orbital_period != 'unknown'">
-                Orbital period : {{ Planet.orbital_period }}
+            <ul class="information">
+                <li v-if="Planet.diameter != 'unknown'">
+                Diameter : {{ Planet.diameter }}
                 </li>
-                <li v-if="Planet.gender != 'unknown'">
-                Genre : {{ Planet.gender }}
+                <li v-if="Planet.climate != 'unknown'">
+                Climate : {{ Planet.climate }}
                 </li>
-                <li v-if="Planet.homeworld != 'unknown'">
-                Planéte d'origine : {{ Planet.homeworld }}
+                <li v-if="Planet.terrain != 'unknown'">
+                Terrain : {{ Planet.terrain }}
                 </li>
-                <li v-if="Planet.species != 'n/a'">
-                Espéce : {{ Planet.species }}
-                </li>
-            </ul> -->
+            </ul>
             <a href="#">Read More</a>
             </div>
         </div>

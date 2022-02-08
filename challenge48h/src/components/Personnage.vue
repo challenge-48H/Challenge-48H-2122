@@ -67,20 +67,14 @@ async function SwitchPageprevious(){
         <div class="box">
             <div class="content">
             <h3>{{ Perso.name }}</h3>
-            <!-- <ul class="information">
+            <ul class="information">
                 <li v-if="Perso.birth_year != 'unknown'">
                 Date de Naissance : {{ Perso.birth_year }}
                 </li>
                 <li v-if="Perso.gender != 'unknown'">
                 Genre : {{ Perso.gender }}
                 </li>
-                <li v-if="Perso.homeworld != 'unknown'">
-                Planéte d'origine : {{ Perso.homeworld }}
-                </li>
-                <li v-if="Perso.species != 'n/a'">
-                Espéce : {{ Perso.species }}
-                </li>
-            </ul> -->
+            </ul>
             <a href="#" v-on:click="Getid()" >Read More</a>
             </div>
         </div>
