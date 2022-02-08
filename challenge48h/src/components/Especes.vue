@@ -1,8 +1,10 @@
 <script setup>
 import API from "../api/axios.js";
+import People from "./Personnage.vue";
 import { ref, computed, onMounted } from "vue";
 
 const listSpecies = ref([]);
+// const listPeople = ref([]);
 const newlistSpecies = ref([]);
 
 async function speciesList() {
@@ -20,6 +22,7 @@ async function speciesList() {
 }
 onMounted(async () => {
   await speciesList();
+  await People.PersoList();
 });
 </script>
 
@@ -40,13 +43,8 @@ onMounted(async () => {
             >
               Taille moyenne : {{ species.average_height }}
             </li>
-            <li
-              v-if="
-                species.skin_colors != 'unknown' && species.skin_colors != 'n/a'
-              "
-            >
-              Couleurs de peau : {{ species.skin_colors }}
-            </li>
+            <li>Couleurs de peau : {{ species.skin_colors }}</li>
+
             <li
               v-if="
                 species.hair_colors != 'unknown' && species.hair_colors != 'n/a'
