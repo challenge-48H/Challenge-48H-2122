@@ -5,7 +5,7 @@ import {ref, computed } from 'vue';
 
 const name = ref ('');
 
-name.value = API.getMovieName().data;
+// name.value = API.getMovieName().data;
 
 function redirect() {
     router.push("/Planets");
@@ -24,10 +24,10 @@ function redirect() {
     </article>
   </section>
 <div class="logo">
-<img class="logoimg" src="../assets/StarWarslogo.png" width="auto" height="200">
+    <img class="logoimg" src="../assets/StarWarslogo.png">
 </div>
 <div class="button-quizz">
-  <button class="wikiRedirect" v-on:click="redirect ()">Quizz</button>
+  <button class="wikiRedirect" v-on:click="redirect ()">QUIZZ</button>
 </div>
 </template> 
 
@@ -40,6 +40,10 @@ function redirect() {
   height: 40vh;
   text-align: center;
   flex-wrap: wrap;
+}
+.logoimg {
+  height: 200px;
+  width: auto;
 }
 .header {
   margin: 10px auto;
