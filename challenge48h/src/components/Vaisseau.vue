@@ -24,7 +24,9 @@ onMounted(async () => {
 </script>
 
 <template>
-  <p>jure la vie de oim j'en ai marre</p>
+  <div class="logo">
+    <imgclass="logoimg" src="../assets/StarWarslogo.png">
+  </div>
   <div class="container">
     <div v-for="starships of listStarships" class="card">
       <div class="box">
@@ -63,6 +65,18 @@ onMounted(async () => {
 </template>
 
 <style scoped>
+.logo {
+  display: flex;
+  justify-content: space-around;
+  align-items:center ;
+  height: 40vh;
+  text-align: center;
+  flex-wrap: wrap;
+}
+.logoimg {
+  height: 200px;
+  width: auto;
+}
 .test {
   /* background-color: cornflowerblue; */
   border-bottom: 1px solid black;
