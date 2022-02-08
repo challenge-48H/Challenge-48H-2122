@@ -1,7 +1,7 @@
 <script setup>
 import API from "../api/axios.js";
 import {ref, computed, onMounted } from 'vue';
-import Header from './Acceuil.vue';
+import Header from './header.vue';
 
 const listPlanet = ref ([]);
 const newlistPlanet = ref ([]);

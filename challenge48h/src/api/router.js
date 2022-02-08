@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from "vue-router"
-import Acceuil from "../components/Acceuil.vue"
+import Acceuil from "../components/header.vue"
 import Especes from "../components/Especes.vue"
 import Vehicule from "../components/Véhicule.vue"
 import Planet from "../components/Planet.vue"
