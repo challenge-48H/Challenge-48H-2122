@@ -1,6 +1,7 @@
 <script setup>
 import API from "../api/axios.js";
 import { ref, computed, onMounted } from "vue";
+import Header from './header.vue';
 
 const listStarships = ref([]);
 const newlistStarships = ref([]);
@@ -24,7 +25,12 @@ onMounted(async () => {
 </script>
 
 <template>
-  <p>jure la vie de oim j'en ai marre</p>
+   <div class="logov">
+    <img class="logoimgv1" src="../assets/destroyer.png">
+    <a href="http://localhost:3000/"><img class="logoimgv2" src="../assets/StarWarslogo.png"></a>
+    <img class="logoimgv3" src="../assets/rond.png" >
+  </div>
+  <Header></Header>
   <div class="container">
     <div v-for="starships of listStarships" class="card">
       <div class="box">
@@ -63,17 +69,31 @@ onMounted(async () => {
 </template>
 
 <style scoped>
-.test {
-  /* background-color: cornflowerblue; */
-  border-bottom: 1px solid black;
-}
-
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700;800&display=swap");
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
+}
+@media only screen and (min-width: 1050px) {
+  
+}
+.logov {
+  display: flex;
+  justify-content: space-around;
+  align-items:center ;
+  height: fit-content;
+  text-align: center;
+  flex-wrap: wrap;
+}
+.logoimgv1, .logoimgv2, .logoimgv3 {
+  height: 200px;
+  width: 350px;
+}
+.test {
+  /* background-color: cornflowerblue; */
+  border-bottom: 1px solid black;
 }
 
 body {
@@ -107,7 +127,7 @@ body .container .card {
 }
 
 body .container .card:nth-child(1) .box .content a {
-  background: #2196f3;
+  background: #000000;
 }
 
 body .container .card .box {

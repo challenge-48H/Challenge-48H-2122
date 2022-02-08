@@ -1,6 +1,7 @@
 <script setup>
 import API from "../api/axios.js";
 import { ref, computed, onMounted } from "vue";
+import Header from "./header.vue";
 
 const listPlanet = ref([]);
 const newlistPlanet = ref([]);
@@ -10,8 +11,8 @@ async function PlanetList() {
   while (listPlanet.value.next != null) {
     const urlNextPage = listPlanet.value.next.substr(30);
     newlistPlanet.value = (await API.getPlanetData(urlNextPage)).data;
-    newlistPlanet.value.results.forEach((vehicle) =>
-      listPlanet.value.results.push(vehicle)
+    newlistPlanet.value.results.forEach((planet) =>
+      listPlanet.value.results.push(planet)
     );
     listPlanet.value.next = newlistPlanet.value.next;
   }
@@ -24,42 +25,38 @@ onMounted(async () => {
 </script>
 
 <template>
-  <p>jure la vie de oim j'en ai marre</p>
-  <div class="container">
-    <div v-for="planet of listPlanet" class="card">
-      <div class="box">
-        <div class="content">
-          <h3 v-if="planet.name != 'unknown'">{{ planet.name }}</h3>
-          <ul class="information">
-            <li v-if="planet.climate != 'unknown'">
-              Climat : {{ planet.climate }}
-            </li>
-            <li v-if="planet.terrain != 'unknown'">
-              Terrain : {{ planet.terrain }}
-            </li>
-            <li v-if="planet.diameter != 'unknown' && planet.diameter != 0">
-              Diamètre : {{ planet.diameter }} km
-            </li>
-            <li v-if="planet.orbital_period != 'unknown'">
-              Période orbitale : {{ planet.orbital_period }} jours
-            </li>
-            <li v-if="planet.population != 'unknown'">
-              Population : {{ planet.population }} personnes
-            </li>
-          </ul>
-          <a href="#">Read More</a>
+  <Header></Header>
+  <div class="pagecontent">
+    <!-- <button v-on:click="SwitchPageprevious()" class="redirect">PREVIOUS</button> -->
+    <div class="container">
+      <div v-for="Planet of listPlanet" class="card">
+        <div class="box">
+          <div class="content">
+            <h3>{{ Planet.name }}</h3>
+            <!-- <ul class="information">
+                <li v-if="Planet.orbital_period != 'unknown'">
+                Orbital period : {{ Planet.orbital_period }}
+                </li>
+                <li v-if="Planet.gender != 'unknown'">
+                Genre : {{ Planet.gender }}
+                </li>
+                <li v-if="Planet.homeworld != 'unknown'">
+                Planéte d'origine : {{ Planet.homeworld }}
+                </li>
+                <li v-if="Planet.species != 'n/a'">
+                Espéce : {{ Planet.species }}
+                </li>
+            </ul> -->
+            <a href="#">Read More</a>
+          </div>
         </div>
       </div>
     </div>
+    <!-- <button v-on:click="SwitchPageNext()" class="redirect">NEXT</button> -->
   </div>
 </template>
 
 <style scoped>
-.test {
-  /* background-color: cornflowerblue; */
-  border-bottom: 1px solid black;
-}
-
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700;800&display=swap");
 * {
   margin: 0;
@@ -67,7 +64,19 @@ onMounted(async () => {
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
 }
-
+.pagecontent {
+  display: flex;
+  flex-direction: row;
+}
+.redirect {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 120%;
+  font-weight: 600;
+  border-radius: 18px;
+  margin: 40px;
+  padding: 25px;
+  transition: 0.5s;
+}
 body {
   display: flex;
   justify-content: center;
@@ -76,7 +85,6 @@ body {
   min-height: 100vh;
   background: #232427;
 }
-
 body .container {
   display: flex;
   justify-content: center;
@@ -85,7 +93,6 @@ body .container {
   max-width: 100%;
   margin: 40px 0;
 }
-
 body .container .card {
   position: relative;
   min-width: 320px;
@@ -97,11 +104,9 @@ body .container .card {
   margin: 30px;
   transition: 0.5s;
 }
-
 body .container .card:nth-child(1) .box .content a {
   background: #2196f3;
 }
-
 body .container .card .box {
   position: absolute;
   top: 20px;
@@ -116,11 +121,9 @@ body .container .card .box {
   overflow: hidden;
   transition: 0.5s;
 }
-
 body .container .card .box:hover {
   transform: translateY(-50px);
 }
-
 body .container .card .box:before {
   content: "";
   position: absolute;
@@ -130,12 +133,10 @@ body .container .card .box:before {
   height: 100%;
   background: rgba(255, 255, 255, 0.03);
 }
-
 body .container .card .box .content {
   padding: 20px;
   text-align: center;
 }
-
 body .container .card .box .content h2 {
   position: absolute;
   top: -10px;
@@ -143,7 +144,6 @@ body .container .card .box .content h2 {
   font-size: 8rem;
   color: rgba(255, 255, 255, 0.1);
 }
-
 body .container .card .box .content h3 {
   font-size: 1.8rem;
   color: #fff;
@@ -151,7 +151,6 @@ body .container .card .box .content h3 {
   transition: 0.5s;
   margin-bottom: 15px;
 }
-
 body .container .card .box .content p {
   font-size: 1rem;
   font-weight: 300;
@@ -159,14 +158,12 @@ body .container .card .box .content p {
   z-index: 1;
   transition: 0.5s;
 }
-
 .information {
   font-size: 1.1rem;
   font-weight: 300;
   color: rgba(255, 255, 255, 0.9);
   z-index: 1;
 }
-
 body .container .card .box .content a {
   position: relative;
   display: inline-block;

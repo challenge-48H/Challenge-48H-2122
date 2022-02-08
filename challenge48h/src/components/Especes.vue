@@ -25,7 +25,6 @@ onMounted(async () => {
   await People.PersoList();
 });
 </script>
-
 <template>
   <p>jure la vie de oim j'en ai marre</p>
   <div class="container">
@@ -44,7 +43,6 @@ onMounted(async () => {
               Taille moyenne : {{ species.average_height }}
             </li>
             <li>Couleurs de peau : {{ species.skin_colors }}</li>
-
             <li
               v-if="
                 species.hair_colors != 'unknown' && species.hair_colors != 'n/a'
@@ -85,7 +83,6 @@ onMounted(async () => {
   /* background-color: cornflowerblue; */
   border-bottom: 1px solid black;
 }
-
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700;800&display=swap");
 * {
   margin: 0;
@@ -93,7 +90,6 @@ onMounted(async () => {
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
 }
-
 body {
   display: flex;
   justify-content: center;
@@ -102,7 +98,6 @@ body {
   min-height: 100vh;
   background: #232427;
 }
-
 body .container {
   display: flex;
   justify-content: center;
@@ -111,7 +106,6 @@ body .container {
   max-width: 100%;
   margin: 40px 0;
 }
-
 body .container .card {
   position: relative;
   min-width: 320px;
