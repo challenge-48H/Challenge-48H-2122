@@ -11,40 +11,75 @@ function redirect() {
     router.push("/Planets");
 }
 </script>
- 
+
 <template>
   <section>
     <article class="header">
-        <button class="wikiRedirect" v-on:click="redirect ()">Planet</button>
-        <button class="wikiRedirect">Film</button>
-        <button class="wikiRedirect">Perssonnage</button>
-        <button class="wikiRedirect">Vaisseau</button>
-        <button class="wikiRedirect">Véhicule</button>
-        <button class="wikiRedirect">Especes</button>
+        <button class="wikiRedirect" v-on:click="redirect ()">Planète</button>
+        <button class="wikiRedirect" v-on:click="redirect ()">Film</button>
+        <button class="wikiRedirect" v-on:click="redirect ()">Personnage</button>
+        <button class="wikiRedirect" v-on:click="redirect ()">Vaisseau</button>
+        <button class="wikiRedirect" v-on:click="redirect ()">Véhicule</button>
+        <button class="wikiRedirect" v-on:click="redirect ()">Espèce</button>
     </article>
   </section>
-</template>
+<div class="logo">
+<img class="logoimg" src="../assets/StarWarslogo.png" width="auto" height="200">
+</div>
+<div class="button-quizz">
+  <button class="wikiRedirect" v-on:click="redirect ()">Quizz</button>
+</div>
+</template> 
 
 <style scoped>
-.header{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    background-color: red;
-    margin-top: 0;
+
+.logo {
+  display: flex;
+  justify-content: space-around;
+  align-items:center ;
+  height: 40vh;
+  text-align: center;
+  flex-wrap: wrap;
 }
-.wikiRedirect{
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 120%;
-    font-weight: 600;
-    width: fit-content;
-    border-radius: 18px;
-    margin: 40px auto;
-    padding: 25px ;
-    transition: 0.2s;
+.header {
+  margin: 10px auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: nowrap;
+  max-width: 90%;
 }
-.wikiRedirect:hover{
-    padding-left: 35px;
-    padding-right: 35px;
-}
+  .header .wikiRedirect {
+   background: #999;
+    padding: 1em;
+    font-size: .9em;
+    margin: .3em;
+    color: rgb(232, 255, 28);
+    text-decoration: none;
+    flex-grow: 1;
+    text-align: center;
+  }
+  .button-quizz{
+  margin: 10px auto;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  max-width: 20%;
+  }
+  .button-quizz .wikiRedirect {
+    background: #999;
+    padding: 1em;
+    font-size: .9em;
+    margin: .3em;
+    color: rgb(251, 255, 0);
+    text-decoration: none;
+    flex-grow: 1;
+    text-align: center;
+    align-items: center;
+  }
+  .wikiRedirect:hover{
+    color: rgba(255, 255, 255, 0.83);
+    background: rgb(251, 255, 0);
+  }
+
 </style>
