@@ -74,8 +74,15 @@ onMounted(async () => {
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
 }
-@media only screen and (min-width: 1050px) {
-  
+@media only screen and (max-width: 1050px) {
+ .logoimgv3{
+    display: none;
+  }
+}
+@media only screen and (max-width: 700px) {
+ .logoimgv1{
+    display: none;
+  }
 }
 .logov {
   display: flex;
