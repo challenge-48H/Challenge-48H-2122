@@ -76,6 +76,7 @@ function redirectEspece() {
   }
   .wikiRedirect:hover{
     width: 200px;
+    opacity: 0.9;
   }
   
   #app{
