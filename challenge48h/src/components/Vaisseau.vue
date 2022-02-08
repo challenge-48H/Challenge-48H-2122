@@ -3,37 +3,23 @@ import API from "../api/axios.js";
 import { ref, computed, onMounted } from "vue";
 
 const listStarships = ref([]);
+const newlistStarships = ref([]);
 
-async function getFilm() {
-  let index = 1;
-  let api = await API.getStarships(index);
-
-  if (api.data.next != null) {
-    index++;
+async function starshipsList() {
+  listStarships.value = (await API.getVaisseauData("")).data;
+  while (listStarships.value.next != null) {
+    const urlNextPage = listStarships.value.next.substr(31);
+    newlistStarships.value = (await API.getVaisseauData(urlNextPage)).data;
+    newlistStarships.value.results.forEach((starships) =>
+      listStarships.value.results.push(starships)
+    );
+    listStarships.value.next = newlistStarships.value.next;
   }
-  listStarships.value = api.data.results;
-  //   listStarships.value = api.data.results;
+  listStarships.value = listStarships.value.results;
   console.log(listStarships.value);
 }
-
-async function dontDisplay() {
-  listStarships.forEach((element) => {
-    if (
-      Object.keys(element) == "n/a" ||
-      Object.keys(element) == "unknown" ||
-      Object.keys(element) == "0"
-    ) {
-      return false;
-    } else {
-      return true;
-    }
-  });
-}
-
-let bool = dontDisplay();
-
 onMounted(async () => {
-  await getFilm();
+  await starshipsList();
 });
 </script>
 
@@ -45,16 +31,27 @@ onMounted(async () => {
         <div class="content">
           <h3>{{ starships.name }}</h3>
           <ul class="information">
+            <li>Modèle : {{ starships.model }}</li>
             <li v-if="starships.cost_in_credits != 'unknown'">
               Prix en crédit : {{ starships.cost_in_credits }}
             </li>
             <li v-if="starships.length != 'unknown'">
               Longueur : {{ starships.length }}
             </li>
-            <li v-if="starships.max_atmosphering_speed != 'n/a'">
+            <li
+              v-if="
+                starships.max_atmosphering_speed != 'n/a' &&
+                starships.max_atmosphering_speed != 'unknown'
+              "
+            >
               Vitesse maximum : {{ starships.max_atmosphering_speed }}
             </li>
-            <li v-if="starships.passengers != 'n/a'">
+            <li
+              v-if="
+                starships.passengers != 'n/a' &&
+                starships.passengers != 'unknown'
+              "
+            >
               Nombre de passager : {{ starships.passengers }}
             </li>
           </ul>
@@ -93,7 +90,7 @@ body .container {
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  max-width: 1200px;
+  max-width: 100%;
   margin: 40px 0;
 }
 

@@ -21,7 +21,7 @@ export default createRouter({
       component: Planet,
     },
     {
-      path: "/véhicule",
+      path: "/vehicule",
       name: "liste des véhicules",
       component: Vehicule,
     },
