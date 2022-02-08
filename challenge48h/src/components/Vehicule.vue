@@ -32,7 +32,7 @@ onMounted(async () => {
       <div class="box">
         <div class="content">
           <h3>{{ vehicles.name }}</h3>
-          <ul class="information">
+          <!-- <ul class="information">
             <li>Modèle : {{ vehicles.model }}</li>
             <li v-if="vehicles.cost_in_credits != 'unknown'">
               Prix en crédit : {{ vehicles.cost_in_credits }}
@@ -55,7 +55,7 @@ onMounted(async () => {
             >
               Nombre de passager : {{ vehicles.passengers }}
             </li>
-          </ul>
+          </ul> -->
           <a href="#">Read More</a>
         </div>
       </div>
