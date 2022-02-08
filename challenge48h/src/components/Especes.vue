@@ -1,11 +1,11 @@
 <script setup>
 import API from "../api/axios.js";
-import People from "./Personnage.vue";
 import { ref, computed, onMounted } from "vue";
 
 const listSpecies = ref([]);
 // const listPeople = ref([]);
 const newlistSpecies = ref([]);
+const input = ref("");
 
 async function speciesList() {
   listSpecies.value = (await API.getEspeceData("")).data;
@@ -18,15 +18,20 @@ async function speciesList() {
     listSpecies.value.next = newlistSpecies.value.next;
   }
   listSpecies.value = listSpecies.value.results;
+  //   listSpecies.value.filter((data) =>
+  //     data.toLowerCase().includes(input.value.toLowerCase())
+  //   );
+  //   filter();
   console.log(listSpecies.value);
 }
+
 onMounted(async () => {
   await speciesList();
-  await People.PersoList();
 });
 </script>
 <template>
   <p>jure la vie de oim j'en ai marre</p>
+  <input type="text" v-model="input" />
   <div class="container">
     <div v-for="species of listSpecies" class="card">
       <div class="box">
@@ -71,7 +76,6 @@ onMounted(async () => {
               Durée de vie moyenne : {{ species.average_lifespan }} ans
             </li>
           </ul>
-          <a href="#">Read More</a>
         </div>
       </div>
     </div>
