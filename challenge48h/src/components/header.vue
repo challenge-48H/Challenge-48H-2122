@@ -63,7 +63,7 @@ function redirectEspece() {
 }
 .wikiRedirect:hover{
     width: 200px;
-    opacity: 0.8;
+    opacity: 0.9;
 }
 
     @media screen and (min-width: 200px) and (max-width: 1000px) {

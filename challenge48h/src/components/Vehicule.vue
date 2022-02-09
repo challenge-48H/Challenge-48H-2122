@@ -28,7 +28,7 @@ onMounted(async () => {
   <div class="logov">
     <img class="logoimgv1" src="../assets/atgauche.png">
     <a href="http://localhost:3000/"><img class="logoimgv2" src="../assets/StarWarslogo.png"></a>
-    <img class="logoimgv3" src="../assets/atdroite.png" >
+    <img class="logoimgv3" src="../assets/atdroite.png">
   </div>
   <Header></Header>
   <div class="container">
@@ -41,7 +41,7 @@ onMounted(async () => {
               Prix en crédit : {{ vehicles.cost_in_credits }}
             </li>
             <li v-if="vehicles.length != 'unknown'">
-              Longueur : {{ vehicles.length }}
+              Longueur : {{ vehicles.length }} m
             </li>
             <li
               v-if="
@@ -55,10 +55,9 @@ onMounted(async () => {
               v-if="
                 vehicles.passengers != 'n/a' && vehicles.passengers != 'unknown'
               "
-            >
+              >
               Nombre de passager : {{ vehicles.passengers }}
             </li>
-          <a href="#">Read More</a>
         </div>
       </div>
     </div>
@@ -66,7 +65,6 @@ onMounted(async () => {
 </template>
 
 <style>
-
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700;800&display=swap");
 * {
   margin: 0;
@@ -91,7 +89,7 @@ display: none;
 .logov {
   display: flex;
   justify-content: space-around;
-  align-items:center ;
+  align-items: center;
   height: 30vh;
   text-align: center;
   flex-wrap: wrap;

@@ -21,6 +21,9 @@ function redirectVehicule() {
 function redirectEspece() {
   router.push("/especes");
 }
+function redirectQuiz(){
+  router.push("/Quiz");
+}
 </script>
 
 <template>
@@ -29,7 +32,7 @@ function redirectEspece() {
     <img class="logoimg" src="../assets/StarWarslogo.png">
 </div>
 <div class="button-quizz">
-  <button class="wikiRedirect" v-on:click="redirect()">QUIZZ</button>
+  <button class="wikiRedirect" v-on:click="redirectQuiz()">QUIZZ</button>
 </div>
 </template> 
 
@@ -76,7 +79,7 @@ function redirectEspece() {
   }
   .wikiRedirect:hover{
     width: 200px;
-    opacity: 0.9;
+    opacity: 0.9; 
   }
   
   #app{

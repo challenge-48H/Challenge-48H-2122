@@ -1,59 +1,59 @@
 <script setup>
 import API from "../api/axios.js";
-import {ref, computed, onMounted } from 'vue';
-import Header from './header.vue';
+import { ref, computed, onMounted } from "vue";
+import Header from "./header.vue";
 
-const listPlanet = ref ([]);
-const newlistPlanet = ref ([]);
+const listPlanet = ref([]);
+const newlistPlanet = ref([]);
 
-async function PlanetList(){
-    listPlanet.value = (await API.getPlanetData("")).data;
-    while ((listPlanet.value).next!=null){
-        const urlNextPage = ((listPlanet.value).next).substr(30);
-        newlistPlanet.value = (await API.getPlanetData(urlNextPage)).data;
-        newlistPlanet.value.results.forEach((planet)=> listPlanet.value.results.push(planet))
-        listPlanet.value.next = newlistPlanet.value.next;
-    }
-    listPlanet.value = listPlanet.value.results;
-    console.log(listPlanet.value);
+async function PlanetList() {
+  listPlanet.value = (await API.getPlanetData("")).data;
+  while (listPlanet.value.next != null) {
+    const urlNextPage = listPlanet.value.next.substr(30);
+    newlistPlanet.value = (await API.getPlanetData(urlNextPage)).data;
+    newlistPlanet.value.results.forEach((planet) =>
+      listPlanet.value.results.push(planet)
+    );
+    listPlanet.value.next = newlistPlanet.value.next;
+  }
+  listPlanet.value = listPlanet.value.results;
+  console.log(listPlanet.value);
 }
-onMounted(async ()=>{
-    await PlanetList();
-})
+onMounted(async () => {
+  await PlanetList();
+});
 </script>
 
 <template>
-<div class="logov">
-    <img class="logoimgv1" src="../assets/planetrouge.png">
-    <a href="http://localhost:3000/"><img class="logoimgv2" src="../assets/StarWarslogo.png"></a>
-    <img class="logoimgv3" src="../assets/planetblue.png" >
-  </div>
-   <Header></Header>
-<div class ="pagecontent">
+  <Header></Header>
+  <div class="pagecontent">
     <!-- <button v-on:click="SwitchPageprevious()" class="redirect">PREVIOUS</button> -->
-        <div class="container">
-        <div v-for="Planet of listPlanet" class="card">
+    <div class="container">
+      <div v-for="Planet of listPlanet" class="card">
         <div class="box">
-            <div class="content">
+          <div class="content">
             <h3>{{ Planet.name }}</h3>
-            <!-- <ul class="information">
-                <li v-if="Planet.orbital_period != 'unknown'">
-                Orbital period : {{ Planet.orbital_period }}
-                </li>
-                <li v-if="Planet.gender != 'unknown'">
-                Genre : {{ Planet.gender }}
-                </li>
-                <li v-if="Planet.homeworld != 'unknown'">
-                Planéte d'origine : {{ Planet.homeworld }}
-                </li>
-                <li v-if="Planet.species != 'n/a'">
-                Espéce : {{ Planet.species }}
-                </li>
-            </ul> -->
-            <a href="#">Read More</a>
-            </div>
+            <ul class="information">
+              <li v-if="Planet.orbital_period != 'unknown'">
+                Periode Orbital : {{ Planet.orbital_period }}
+              </li>
+              <li v-if="Planet.climate != 'unknown'">
+                Climat : {{ Planet.climate }}
+              </li>
+              <li v-if="Planet.terrain != 'unknown' && Planet.terrain != 'n/a'">
+                Terrain : {{ Planet.terrain }}
+              </li>
+              <li
+                v-if="
+                  Planet.population != 'n/a' && Planet.population != 'unknown'
+                "
+              >
+                Population : {{ Planet.population }}
+              </li>
+            </ul>
+          </div>
         </div>
-        </div>
+      </div>
     </div>
     <!-- <button v-on:click="SwitchPageNext()" class="redirect">NEXT</button> -->
   </div>

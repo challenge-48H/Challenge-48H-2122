@@ -1,28 +1,29 @@
 <script setup>
 import API from "../api/axios.js";
-import {ref, computed, onMounted } from 'vue';
-import Header from './header.vue';
- 
-const listFilm = ref ([]);
-const newlistFilm = ref ([]);
+import { ref, computed, onMounted } from "vue";
+import Header from "./header.vue";
 
-async function FilmList(){
-    listFilm.value = (await API.getFilmData("")).data;
-    while ((listFilm.value).next!=null){
-        const urlNextPage = ((listFilm.value).next).substr(29);
-        newlistFilm.value = (await API.getFilmData(urlNextPage)).data;
-        newlistFilm.value.results.forEach((film)=> listFilm.value.results.push(film))
-        listFilm.value.next = newlistFilm.value.next;
-    }
-    listFilm.value = listFilm.value.results;
-    console.log(listFilm.value);
+const listFilm = ref([]);
+const newlistFilm = ref([]);
+
+async function FilmList() {
+  listFilm.value = (await API.getFilmData("")).data;
+  while (listFilm.value.next != null) {
+    const urlNextPage = listFilm.value.next.substr(29);
+    newlistFilm.value = (await API.getFilmData(urlNextPage)).data;
+    newlistFilm.value.results.forEach((film) =>
+      listFilm.value.results.push(film)
+    );
+    listFilm.value.next = newlistFilm.value.next;
+  }
+  listFilm.value = listFilm.value.results;
+  console.log(listFilm.value);
 }
-onMounted(async ()=>{
-    await FilmList();
-})
- 
+onMounted(async () => {
+  await FilmList();
+});
 </script>
- 
+
 <template>
  <div class="logov">
     <img class="logoimgv1" src="../assets/sabrev.png">
@@ -32,20 +33,19 @@ onMounted(async ()=>{
    <Header></Header>
 <div class ="pagecontent">
     <!-- <button v-on:click="SwitchPageprevious()" class="redirect">PREVIOUS</button> -->
-        <div class="container">
-        <div v-for="Film of listFilm" class="card">
+    <div class="container">
+      <div v-for="Film of listFilm" class="card">
         <div class="box">
-            <div class="content">
+          <div class="content">
             <h3>{{ Film.title }}</h3>
-            <a href="#">Read More</a>
-            </div>
+          </div>
         </div>
-        </div>
+      </div>
     </div>
     <!-- <button v-on:click="SwitchPageNext()" class="redirect">NEXT</button> -->
   </div>
 </template>
- 
+
 <style scoped>
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700;800&display=swap");
 * {

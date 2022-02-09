@@ -1,13 +1,13 @@
 <script setup>
 import API from "../api/axios.js";
-import People from "./Personnage.vue";
 import { ref, computed, onMounted } from "vue";
 import Header from './header.vue';
  
 const listSpecies = ref([]);
 // const listPeople = ref([]);
 const newlistSpecies = ref([]);
- 
+const input = ref("");
+
 async function speciesList() {
   listSpecies.value = (await API.getEspeceData("")).data;
   while (listSpecies.value.next != null) {
@@ -19,14 +19,17 @@ async function speciesList() {
     listSpecies.value.next = newlistSpecies.value.next;
   }
   listSpecies.value = listSpecies.value.results;
+  //   listSpecies.value.filter((data) =>
+  //     data.toLowerCase().includes(input.value.toLowerCase())
+  //   );
+  //   filter();
   console.log(listSpecies.value);
 }
+
 onMounted(async () => {
   await speciesList();
-  await People.PersoList();
 });
 </script>
- 
 <template>
   <div class="logov">
     <img class="logoimgv1" src="../assets/jabaa.png">
@@ -50,7 +53,6 @@ onMounted(async () => {
               Taille moyenne : {{ species.average_height }}
             </li>
             <li>Couleurs de peau : {{ species.skin_colors }}</li>
- 
             <li
               v-if="
                 species.hair_colors != 'unknown' && species.hair_colors != 'n/a'
@@ -78,8 +80,7 @@ onMounted(async () => {
             >
               Durée de vie moyenne : {{ species.average_lifespan }} ans
             </li>
-          </ul> -->
-          <a href="#">Read More</a>
+          </ul>
         </div>
       </div>
     </div>
@@ -91,7 +92,6 @@ onMounted(async () => {
   /* background-color: cornflowerblue; */
   border-bottom: 1px solid black;
 }
- 
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700;800&display=swap");
 * {
   margin: 0;
@@ -130,7 +130,6 @@ body {
   min-height: 100vh;
   background: #232427;
 }
- 
 body .container {
   display: flex;
   justify-content: center;
@@ -139,7 +138,6 @@ body .container {
   max-width: 100%;
   margin: 40px 0;
 }
- 
 body .container .card {
   position: relative;
   min-width: 320px;
@@ -151,11 +149,11 @@ body .container .card {
   margin: 30px;
   transition: 0.5s;
 }
- 
+
 body .container .card:nth-child(1) .box .content a {
   background: #2196f3;
 }
- 
+
 body .container .card .box {
   position: absolute;
   top: 20px;
@@ -170,11 +168,11 @@ body .container .card .box {
   overflow: hidden;
   transition: 0.5s;
 }
- 
+
 body .container .card .box:hover {
   transform: translateY(-50px);
 }
- 
+
 body .container .card .box:before {
   content: "";
   position: absolute;
@@ -184,12 +182,12 @@ body .container .card .box:before {
   height: 100%;
   background: rgba(255, 255, 255, 0.03);
 }
- 
+
 body .container .card .box .content {
   padding: 20px;
   text-align: center;
 }
- 
+
 body .container .card .box .content h2 {
   position: absolute;
   top: -10px;
@@ -197,7 +195,7 @@ body .container .card .box .content h2 {
   font-size: 8rem;
   color: rgba(255, 255, 255, 0.1);
 }
- 
+
 body .container .card .box .content h3 {
   font-size: 1.8rem;
   color: #fff;
@@ -205,7 +203,7 @@ body .container .card .box .content h3 {
   transition: 0.5s;
   margin-bottom: 15px;
 }
- 
+
 body .container .card .box .content p {
   font-size: 1rem;
   font-weight: 300;
@@ -213,14 +211,14 @@ body .container .card .box .content p {
   z-index: 1;
   transition: 0.5s;
 }
- 
+
 .information {
   font-size: 1.1rem;
   font-weight: 300;
   color: rgba(255, 255, 255, 0.9);
   z-index: 1;
 }
- 
+
 body .container .card .box .content a {
   position: relative;
   display: inline-block;

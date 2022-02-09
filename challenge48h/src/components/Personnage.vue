@@ -1,16 +1,16 @@
 <script setup>
 import API from "../api/axios.js";
-import {ref, computed, onMounted } from 'vue';
-import Header from './header.vue';
+import { ref, computed, onMounted } from "vue";
+import Header from "./header.vue";
 
-const listPerso = ref ([]);
-const newlistPerso = ref ([]);
+const listPerso = ref([]);
+const newlistPerso = ref([]);
 
 const csspopup = ref ("infoReveal");
 
 const listData = ref ([]);
 
-const regex = new RegExp('https:*');
+const regex = new RegExp("https:*");
 
 async function GetDataSwapi(){
     listData.value = (await API.getAllData).data;
@@ -30,71 +30,37 @@ async function PersoList(){
 onMounted(async ()=>{
     await PersoList();
 })
-
-
-/* async function PersoList(){
-    listPerso.value = (await API.getPersoData("")).data;
-    listPerso.value = listPerso.value.results;
-    console.log(listPerso.value);
-}
-onMounted(async ()=>{
-    await PersoList();
-})
-onMounted(async ()=>{
-    await GetDataSwapi();
-})
-async function SwitchPageNext(){
-    await API.Switch(true);
-    listPerso.value = (await API.getPersoData("")).data;
-    listPerso.value = listPerso.value.results;
-    console.log(listPerso.value);
-}
-async function SwitchPageprevious(){
-    await API.Switch(false);
-    listPerso.value = (await API.getPersoData("")).data;
-    listPerso.value = listPerso.value.results;
-    console.log(listPerso.value);
-}
- */
 </script>
 
-<template><div class="logov">
-    <img class="logoimgv1" src="../assets/yoda.png">
-    <a href="http://localhost:3000/"><img class="logoimgv2" src="../assets/StarWarslogo.png"></a>
-    <img class="logoimgv3" src="../assets/vador.png" >
-  </div>
-<Header></Header>
-<div class ="pagecontent">
+<template>
+  <Header></Header>
+  <div class="pagecontent">
     <!-- <button v-on:click="SwitchPageprevious()" class="redirect">PREVIOUS</button> -->
-        <div class="container">
-        <div v-for="Perso of listPerso" :key="Perso.name" class="card">
+    <div class="container">
+      <div v-for="Perso of listPerso" class="card">
         <div class="box">
-            <div class="content">
+          <div class="content">
             <h3>{{ Perso.name }}</h3>
-            <!-- <ul class="information">
-                <li v-if="Perso.birth_year != 'unknown'">
+            <ul class="information">
+              <li v-if="Perso.birth_year != 'unknown'">
                 Date de Naissance : {{ Perso.birth_year }}
-                </li>
-                <li v-if="Perso.gender != 'unknown'">
+              </li>
+              <li v-if="Perso.gender != 'unknown' && Perso.gender != 'n/a'">
                 Genre : {{ Perso.gender }}
-                </li>
-                <li v-if="Perso.homeworld != 'unknown'">
-                Planéte d'origine : {{ Perso.homeworld }}
-                </li>
-                <li v-if="Perso.species != 'n/a'">
-                Espéce : {{ Perso.species }}
-                </li>
-            </ul> -->
-            <a href="#" v-on:click="Getid()" >Read More</a>
-            </div>
+              </li>
+              <li v-if="Perso.mass != 'unknown' && Perso.mass != 'n/a'">
+                Masse : {{ Perso.mass }} kg
+              </li>
+              <li v-if="Perso.height != 'n/a' && Perso.height != 'unknown'">
+                Taille : {{ Perso.height }} cm
+              </li>
+            </ul>
+          </div>
         </div>
-        </div>
+      </div>
     </div>
     <!-- <button v-on:click="SwitchPageNext()" class="redirect">NEXT</button> -->
   </div>
-  <!-- <div class="infoReveal">
-      salut
-  </div> -->
 </template>
 
 <style scoped>
@@ -248,17 +214,4 @@ body .container .card .box .content a:hover {
   background: #fff;
   color: #000;
 }
-/* .infoHide{
-    display: none;
-}
-.infoReveal{
-    z-index: 99;
-    position: absolute;
-    align-items: center;
-    width: 100vh;
-    background-color: #2196f3;
-    flex-direction: column;
-    margin: 100px auto;
-    border-radius: 10px;
-} */
 </style>
