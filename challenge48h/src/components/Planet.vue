@@ -33,21 +33,20 @@ onMounted(async () => {
         <div class="box">
           <div class="content">
             <h3>{{ Planet.name }}</h3>
-            <!-- <ul class="information">
-                <li v-if="Planet.orbital_period != 'unknown'">
-                Orbital period : {{ Planet.orbital_period }}
-                </li>
-                <li v-if="Planet.gender != 'unknown'">
+            <ul class="information">
+              <li v-if="Planet.orbital_period != 'unknown'">
+                Periode Orbital : {{ Planet.orbital_period }}
+              </li>
+              <li v-if="Planet.gender != 'unknown'">
                 Genre : {{ Planet.gender }}
-                </li>
-                <li v-if="Planet.homeworld != 'unknown'">
-                Planéte d'origine : {{ Planet.homeworld }}
-                </li>
-                <li v-if="Planet.species != 'n/a'">
-                Espéce : {{ Planet.species }}
-                </li>
-            </ul> -->
-            <a href="#">Read More</a>
+              </li>
+              <li v-if="Planet.homeworld != 'unknown'">
+                Planète d'origine : {{ Planet.homeworld }}
+              </li>
+              <li v-if="Planet.species != 'n/a'">
+                Espèce : {{ Planet.species }}
+              </li>
+            </ul>
           </div>
         </div>
       </div>

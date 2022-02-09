@@ -24,8 +24,10 @@ onMounted(async () => {
 </script>
 
 <template>
-<div class="logov">
-    <a href="http://localhost:3000/"><img class="logoimgv" src="../assets/StarWarslogo.png"></a>
+  <div class="logov">
+    <a href="http://localhost:3000/"
+      ><img class="logoimgv" src="../assets/StarWarslogo.png"
+    /></a>
   </div>
   <div class="container">
     <div v-for="vehicles of listVehicles" class="card">
@@ -56,7 +58,6 @@ onMounted(async () => {
               Nombre de passager : {{ vehicles.passengers }}
             </li>
           </ul>
-          <a href="#">Read More</a>
         </div>
       </div>
     </div>
@@ -64,7 +65,6 @@ onMounted(async () => {
 </template>
 
 <style>
-
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700;800&display=swap");
 * {
   margin: 0;
@@ -79,7 +79,7 @@ onMounted(async () => {
 .logov {
   display: flex;
   justify-content: space-around;
-  align-items:center ;
+  align-items: center;
   height: 30vh;
   text-align: center;
   flex-wrap: wrap;

@@ -1,7 +1,7 @@
 <script setup>
 import API from "../api/axios.js";
 import { ref, computed, onMounted } from "vue";
-import Header from './header.vue';
+import Header from "./header.vue";
 
 const listStarships = ref([]);
 const newlistStarships = ref([]);
@@ -25,10 +25,12 @@ onMounted(async () => {
 </script>
 
 <template>
-   <div class="logov">
-    <img class="logoimgv1" src="../assets/destroyer.png">
-    <a href="http://localhost:3000/"><img class="logoimgv2" src="../assets/StarWarslogo.png"></a>
-    <img class="logoimgv3" src="../assets/rond.png" >
+  <div class="logov">
+    <img class="logoimgv1" src="../assets/destroyer.png" />
+    <a href="http://localhost:3000/"
+      ><img class="logoimgv2" src="../assets/StarWarslogo.png"
+    /></a>
+    <img class="logoimgv3" src="../assets/rond.png" />
   </div>
   <Header></Header>
   <div class="container">
@@ -61,7 +63,6 @@ onMounted(async () => {
               Nombre de passager : {{ starships.passengers }}
             </li>
           </ul>
-          <a href="#">Read More</a>
         </div>
       </div>
     </div>
@@ -77,17 +78,18 @@ onMounted(async () => {
   font-family: "Poppins", sans-serif;
 }
 @media only screen and (min-width: 1050px) {
-  
 }
 .logov {
   display: flex;
   justify-content: space-around;
-  align-items:center ;
+  align-items: center;
   height: fit-content;
   text-align: center;
   flex-wrap: wrap;
 }
-.logoimgv1, .logoimgv2, .logoimgv3 {
+.logoimgv1,
+.logoimgv2,
+.logoimgv3 {
   height: 200px;
   width: 350px;
 }

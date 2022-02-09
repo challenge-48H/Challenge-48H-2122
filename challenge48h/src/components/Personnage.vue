@@ -1,87 +1,63 @@
 <script setup>
 import API from "../api/axios.js";
-import {ref, computed, onMounted } from 'vue';
-import Header from './header.vue';
+import { ref, computed, onMounted } from "vue";
+import Header from "./header.vue";
 
-const listPerso = ref ([]);
-const newlistPerso = ref ([]);
+const listPerso = ref([]);
+const newlistPerso = ref([]);
 
-const listData = ref ([]);
+const listData = ref([]);
 
-const regex = new RegExp('https:*');
+const regex = new RegExp("https:*");
 
-async function GetDataSwapi(){
-    listData.value = (await API.getAllData).data;
-    console.log(listPerso.value);
+async function GetDataSwapi() {
+  listData.value = (await API.getAllData).data;
+  console.log(listPerso.value);
 }
-async function PersoList(){
-    listPerso.value = (await API.getPersoData("")).data;
-    while ((listPerso.value).next!=null){
-        const urlNextPage = ((listPerso.value).next).substr(29);
-        newlistPerso.value = (await API.getPersoData(urlNextPage)).data;
-        newlistPerso.value.results.forEach((people)=> listPerso.value.results.push(people))
-        listPerso.value.next = newlistPerso.value.next;
-    }
-    listPerso.value = listPerso.value.results;
-    console.log(listPerso.value);
+async function PersoList() {
+  listPerso.value = (await API.getPersoData("")).data;
+  while (listPerso.value.next != null) {
+    const urlNextPage = listPerso.value.next.substr(29);
+    newlistPerso.value = (await API.getPersoData(urlNextPage)).data;
+    newlistPerso.value.results.forEach((people) =>
+      listPerso.value.results.push(people)
+    );
+    listPerso.value.next = newlistPerso.value.next;
+  }
+  listPerso.value = listPerso.value.results;
+  console.log(listPerso.value);
 }
-onMounted(async ()=>{
-    await PersoList();
-})
-
-/* async function PersoList(){
-    listPerso.value = (await API.getPersoData("")).data;
-    listPerso.value = listPerso.value.results;
-    console.log(listPerso.value);
-}
-onMounted(async ()=>{
-    await PersoList();
-})
-onMounted(async ()=>{
-    await GetDataSwapi();
-})
-async function SwitchPageNext(){
-    await API.Switch(true);
-    listPerso.value = (await API.getPersoData("")).data;
-    listPerso.value = listPerso.value.results;
-    console.log(listPerso.value);
-}
-async function SwitchPageprevious(){
-    await API.Switch(false);
-    listPerso.value = (await API.getPersoData("")).data;
-    listPerso.value = listPerso.value.results;
-    console.log(listPerso.value);
-}
- */
+onMounted(async () => {
+  await PersoList();
+});
 </script>
 
 <template>
-<Header></Header>
-<div class ="pagecontent">
+  <Header></Header>
+  <div class="pagecontent">
     <!-- <button v-on:click="SwitchPageprevious()" class="redirect">PREVIOUS</button> -->
-        <div class="container">
-        <div v-for="Perso of listPerso" class="card">
+    <div class="container">
+      <div v-for="Perso of listPerso" class="card">
         <div class="box">
-            <div class="content">
+          <div class="content">
             <h3>{{ Perso.name }}</h3>
             <ul class="information">
-                <li v-if="Perso.birth_year != 'unknown'">
+              <li v-if="Perso.birth_year != 'unknown'">
                 Date de Naissance : {{ Perso.birth_year }}
-                </li>
-                <li v-if="Perso.gender != 'unknown'">
+              </li>
+              <li v-if="Perso.gender != 'unknown'">
                 Genre : {{ Perso.gender }}
-                </li>
-                <li v-if="Perso.homeworld != 'unknown'">
+              </li>
+              <li v-if="Perso.homeworld != 'unknown'">
                 Planéte d'origine : {{ Perso.homeworld }}
-                </li>
-                <li v-if="Perso.species != 'n/a'">
+              </li>
+              <li v-if="Perso.species != 'n/a'">
                 Espéce : {{ Perso.species }}
-                </li>
+              </li>
             </ul>
-            <a href="#">Read More</a>
-            </div>
+          </div>
         </div>
-        </div>
+      </div>
     </div>
     <!-- <button v-on:click="SwitchPageNext()" class="redirect">NEXT</button> -->
   </div>
@@ -95,18 +71,18 @@ async function SwitchPageprevious(){
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
 }
-.pagecontent{
-    display: flex;
-    flex-direction: row;
+.pagecontent {
+  display: flex;
+  flex-direction: row;
 }
-.redirect{
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 120%;
-    font-weight: 600;
-    border-radius: 18px;
-    margin: 40px;
-    padding: 25px ;
-    transition: 0.5s;
+.redirect {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 120%;
+  font-weight: 600;
+  border-radius: 18px;
+  margin: 40px;
+  padding: 25px;
+  transition: 0.5s;
 }
 body {
   display: flex;
