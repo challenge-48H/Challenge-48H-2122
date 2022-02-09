@@ -33,6 +33,11 @@ onMounted(async ()=>{
 </script>
 
 <template>
+<div class="logov">
+    <img class="logoimgv1" src="../assets/yoda.png">
+    <a href="http://localhost:3000/"><img class="logoimgv2" src="../assets/StarWarslogo.png"></a>
+    <img class="logoimgv3" src="../assets/vador.png">
+  </div>
   <Header></Header>
   <div class="pagecontent">
     <!-- <button v-on:click="SwitchPageprevious()" class="redirect">PREVIOUS</button> -->
