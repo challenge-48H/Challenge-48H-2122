@@ -1,50 +1,88 @@
 <script setup>
 import { useRouter } from "vue-router";
-import API from "../api/axios.js";
-import {ref, computed } from 'vue';
+import Header from './header.vue';
 
-const name = ref ('');
-
-name.value = API.getMovieName().data;
-
-function redirect() {
-    router.push("/Planets");
+const router = useRouter();
+function redirectPlanet() {
+  router.push("/planets");
+}
+function redirectFilm() {
+  router.push("/film");
+}
+function redirectPersonnage() {
+  router.push("/personnage");
+}
+function redirectVaisseau() {
+  router.push("/vaisseau");
+}
+function redirectVehicule() {
+  router.push("/vehicule");
+}
+function redirectEspece() {
+  router.push("/especes");
+}
+function redirectQuiz(){
+  router.push("/Quiz");
 }
 </script>
- 
+
 <template>
-  <section>
-    <article class="header">
-        <button class="wikiRedirect" v-on:click="redirect ()">Planet</button>
-        <button class="wikiRedirect">Film</button>
-        <button class="wikiRedirect">Perssonnage</button>
-        <button class="wikiRedirect">Vaisseau</button>
-        <button class="wikiRedirect">Véhicule</button>
-        <button class="wikiRedirect">Especes</button>
-    </article>
-  </section>
-</template>
+  <Header></Header>
+<div class="logo">
+    <img class="logoimg" src="../assets/StarWarslogo.png">
+</div>
+<div class="button-quizz">
+  <button class="wikiRedirect" v-on:click="redirectQuiz()">QUIZZ</button>
+</div>
+</template> 
 
 <style scoped>
-.header{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    background-color: red;
-    margin-top: 0;
+@media screen and (min-width: 200px) and (max-width: 1000px) {
+        .button-quizz {
+            display: flex;
+            flex-direction: column;
+            width: fit-content;
+        }
+        .wikiRedirect{
+            margin-left: 20px;
+            margin-right: 20px;
+        }
+    }
+.logo {
+  display: flex;
+  justify-content: space-around;
+  align-items:center ;
+  height: 40vh;
+  text-align: center;
+  flex-wrap: wrap;
 }
-.wikiRedirect{
-    font-family: Arial, Helvetica, sans-serif;
+.logoimg {
+  height: 200px;
+  width: auto;
+}
+  .button-quizz{
+  margin: 10px auto;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  max-width: 20%;
+  }
+  .button-quizz .wikiRedirect {
+     font-family: Arial, Helvetica, sans-serif;
     font-size: 120%;
     font-weight: 600;
-    width: fit-content;
+    width: 150px;
     border-radius: 18px;
     margin: 40px auto;
     padding: 25px ;
-    transition: 0.2s;
-}
-.wikiRedirect:hover{
-    padding-left: 35px;
-    padding-right: 35px;
-}
+    transition: 0.5s;
+  }
+  .wikiRedirect:hover{
+    width: 200px;
+    opacity: 0.9; 
+  }
+  
+  #app{
+    height:100vh;
+  }
 </style>
