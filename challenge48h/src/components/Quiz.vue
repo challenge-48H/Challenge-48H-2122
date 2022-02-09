@@ -7,7 +7,7 @@ let quiz = {
   title: "Mon questionnaire",
   questions: [
     {
-      text: "Qui est le père de Luke Skywalker ? ?",
+      text: "Qui est le père de Luke Skywalker ?",
       responses: [
         { text: "Anakin", correct: true },
         { text: "Dark Vador", correct: true },
@@ -55,7 +55,7 @@ let quiz = {
       text: "Dans quel épisode Dark Vador dit-il le fameux 'Je suis ton père' ?",
       responses: [
         { text: 'The IV, "Un nouvel espoir"' },
-        { text: "The V, 'L'Empire contre-attaque'", correct: true },
+        { text: "The V, L Empire contre-attaque", correct: true },
         { text: 'The VI, "Le retour du Jedi"' },
       ],
     },
@@ -70,12 +70,12 @@ let quiz = {
           text: "L'histoire se déroule dans l'ordre suivant : épisode IV, puis V et VI pour finir sur les I, II et III",
         },
         {
-          text: "Les aventures évoluent dans l'ordre IV, V, I, II, III puis VI ? ",
+          text: "Les aventures évoluent dans l'ordre IV, V, I, II, III puis VI  ",
         },
       ],
     },
     {
-      text: " Combien d'années séparent la sortie en salles de l'Episode IV de l'Episode III ?",
+      text: "Combien d'années séparent la sortie en salles de l'Episode IV de l'Episode III ?",
       responses: [
         { text: "vingt-six ans" },
         { text: "vingt-neuf ans" },
@@ -116,12 +116,14 @@ function score() {
 }
 </script>
 <template>
-<div class="logov">
-    <img class="logoimgv1" src="../assets/yoda.png">
-    <a href="http://localhost:3000/"><img class="logoimgv2" src="../assets/StarWarslogo.png"></a>
-    <img class="logoimgv3" src="../assets/vador.png">
+  <div class="logov">
+    <img class="logoimgv1" src="../assets/yoda.png" />
+    <a href="http://localhost:3000/"
+      ><img class="logoimgv2" src="../assets/StarWarslogo.png"
+    /></a>
+    <img class="logoimgv3" src="../assets/vador.png" />
   </div>
-<Header></Header>
+  <Header></Header>
   <h1 class="title">{{ quiz.title }}</h1>
   <!-- index is used to check with current question index -->
   <div v-for="(question, index) in quiz.questions" :key="index">
@@ -140,7 +142,7 @@ function score() {
               v-bind:value="response.correct"
               v-bind:name="index"
               v-model="userResponses[index]"
-            >
+            />
             {{ response.text }}
           </label>
         </li>
@@ -148,8 +150,8 @@ function score() {
       <!-- The two navigation buttons -->
       <!-- Note: prev is hidden on first question -->
       <div class="suipre1">
-      <button v-if="questionIndex > 0" v-on:click="prev">précédent</button>
-      <button v-on:click="next">suivant</button>
+        <button v-if="questionIndex > 0" v-on:click="prev">précédent</button>
+        <button v-on:click="next">suivant</button>
       </div>
     </div>
   </div>
@@ -168,42 +170,47 @@ function score() {
   font-family: "Poppins", sans-serif;
 }
 @media only screen and (max-width: 1050px) {
-  .logoimgv1{
-display: none;
+  .logoimgv1 {
+    display: none;
   }
 }
 @media only screen and (max-width: 700px) {
-  .logoimgv3{
-display: none;
+  .logoimgv3 {
+    display: none;
   }
 }
 .logov {
   display: flex;
   justify-content: space-around;
-  align-items:center ;
+  align-items: center;
   height: fit-content;
   text-align: center;
   flex-wrap: wrap;
 }
-.logoimgv1, .logoimgv2, .logoimgv3 {
+.logoimgv1,
+.logoimgv2,
+.logoimgv3 {
   height: 200px;
   width: 350px;
 }
-.lab, .question, .title, .result {
+.lab,
+.question,
+.title,
+.result {
   color: #ffe000;
 }
-  .suipre1 button {
-     font-family: Arial, Helvetica, sans-serif;
-    font-size: 120%;
-    font-weight: 600;
-    width: 150px;
-    border-radius: 18px;
-    margin: 40px auto;
-    padding: 25px ;
-    transition: 0.5s;
-  }
-  .suipre1 button:hover{
-    width: 137px;
-    opacity: 0.9; 
-  }
+.suipre1 button {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 120%;
+  font-weight: 600;
+  width: 150px;
+  border-radius: 18px;
+  margin: 40px auto;
+  padding: 25px;
+  transition: 0.5s;
+}
+.suipre1 button:hover {
+  width: 137px;
+  opacity: 0.9;
+}
 </style>
